@@ -23,16 +23,35 @@ public class HomeController {
     }
 
     @GetMapping("/goodbye")
-    public String goodbyePage(){
+    public String goodbyePage() {
         return "entrance/goodbye";
     }
 
     @GetMapping("/calculator")
-    public String calculatorPage(HttpServletRequest request, Model model){
-        int a = Integer.parseInt(request.getParameter("a"));
-        int b = Integer.parseInt(request.getParameter("b"));
-        
+    public String calculatorPage(@RequestParam("a") int a,
+                                 @RequestParam("b") int b,
+                                 @RequestParam("action") String action,
+                                 Model model) {
+        double result;
 
+        switch (action) {
+            case "multiplication":
+                result = a * b;
+                break;
+            case "addition":
+                result = a + b;
+                break;
+            case "subtraction":
+                result = a - b;
+                break;
+            case "division":
+                result = (a / b);
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + action);
+        }
+
+        model.addAttribute("message", "result = " + result);
 
         return "entrance/calculator";
     }
