@@ -45,13 +45,13 @@ public class HomeController {
                 result = a - b;
                 break;
             case "division":
-                result = (a / b);
+                result = a / (double)b;
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + action);
         }
 
-        model.addAttribute("message", "result = " + result);
+        model.addAttribute("resultMessage", "result = " + result);
 
         return "entrance/calculator";
     }
