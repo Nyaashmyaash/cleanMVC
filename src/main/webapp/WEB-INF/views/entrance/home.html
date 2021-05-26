@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Home</title>
+</head>
+
+<body>
+
+<p>Home page!</p>
+
+<a href="/goodbye">Say goodbye!</a> or <a href="/exit">Exit</a> or
+<a href="/home?name=Tom&surname=Harris">Request with parameter</a>
+<p>______________________________________________________________</p>
+<a href="/calculator">Calculator</a>
+
+
+<p th:text="${message}">
+
+</body>
+
+</html>
