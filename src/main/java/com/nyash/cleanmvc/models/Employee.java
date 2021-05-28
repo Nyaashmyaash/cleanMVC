@@ -5,7 +5,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-public class Person {
+public class Employee {
     private int id;
 
     @NotEmpty(message = "Name should not be empty")
@@ -19,11 +19,11 @@ public class Person {
     @Email(message = "Email should be valid")
     private String email;
 
-    public Person(){
+    public Employee(){
 
     }
 
-    public Person(int id, String name, int age, String email) {
+    public Employee(int id, String name, int age, String email) {
         this.id = id;
         this.name = name;
         this.age = age;
