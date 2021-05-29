@@ -30,18 +30,18 @@ public class EmployeeController {
 
     @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model){
-        model.addAttribute("person", employeeDAO.show(id));
+        model.addAttribute("employee", employeeDAO.show(id));
         return "people/show";
     }
 
     @GetMapping("/new")
-    public String newPerson(Model model){
-        model.addAttribute("person", new Employee());
+    public String newEmployee(Model model){
+        model.addAttribute("employee", new Employee());
         return "people/new";
     }
 
     @PostMapping()
-    public String create(@ModelAttribute("person") @Valid Employee employee,
+    public String create(@ModelAttribute("employee") @Valid Employee employee,
                          BindingResult bindingResult) {
         if (bindingResult.hasErrors())
             return "people/new";
@@ -51,12 +51,12 @@ public class EmployeeController {
 
     @GetMapping("/{id}/edit")
     public String edit(Model model, @PathVariable("id") int id){
-        model.addAttribute("person", employeeDAO.show(id));
+        model.addAttribute("employee", employeeDAO.show(id));
         return "people/edit";
     }
 
     @PatchMapping("/{id}")
-    public String update(@ModelAttribute("person") @Valid Employee employee, BindingResult bindingResult,
+    public String update(@ModelAttribute("employee") @Valid Employee employee, BindingResult bindingResult,
                          @PathVariable("id") int id){
         if (bindingResult.hasErrors())
             return "people/edit";
